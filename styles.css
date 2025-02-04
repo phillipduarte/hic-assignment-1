@@ -80,6 +80,8 @@ body {
   background: #d3d3d3;
   padding: 10px;
   border-radius: 10px;
+  display: flex;
+  overflow-x: scroll;
 }
 
 .hour {
@@ -94,6 +96,10 @@ body {
   padding-right: 16px;
   color: #F5F5F5;
   border-right: 1px solid #C1C1C1;
+  flex: 0 0 auto;
+  width: 80px;
+  text-align: center;
+  margin: 10px;
 }
 
 .hourly-temp {
@@ -162,13 +168,16 @@ body {
 
 .wind-info span {
   font-size: 20px;
-  color: darkgray;
+  color: rgb(255, 255, 255);
 }
 
 .wind-icon {
   height: 64px;
-  width: 64px;
+  width: 82px;
+  margin: -10px;
+  margin-top: 20px;
   transform: translate(0px, 24px);
+  transition: transform 0.5s;
 }
 
 
@@ -203,17 +212,88 @@ body {
   color: white;
 }
 
+
+
+.sun-logo {
+  width: 60px;
+  height: 60px;
+  margin-bottom: -24px;
+  position: absolute;
+  transition: left 1s, top 1s;
+}
+
+/* Add these styles at the end of the file */
+body.daytime {
+  background-color: #87CEEB; /* Light blue for daytime */
+}
+
+body.nighttime {
+  background-color: #001f3f; /* Dark blue for nighttime */
+}
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.popup.hidden {
+  display: none;
+}
+
+.popup-content {
+  text-align: center;
+}
+
+.popup-content h2 {
+  margin-top: 0;
+}
+
+.popup-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.popup-content li {
+  margin: 10px 0;
+}
+
+.popup-content button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.wind-icon {
+  transition: transform 0.5s;
+}
+
+
+#location-button:hover {
+  background-color: #89c0ff;
+}
+
+#location-button:active {
+  transform: translate(0, -32px);
+  box-shadow: none;
+  background-color: #4a90e2;
+}
+
 .location-icon {
   background: #4a90e2;
   height: 96px;
   width: 96px;
   border-radius: 50%;
   transform: translate(0, -36px);
-}
-
-.sun-logo {
-  width: 60px;
-  height: 60px;
-  transform: translate(144px, -12px);
-  margin-bottom: -24px;
+  box-shadow: 0 5px #323232;
 }
